@@ -8,12 +8,12 @@ target/
 *.iml
 *.iws
 *.jrtc
-*.java
-*.class
+
 *.info
 *.properties
 *.jar
-
+snake
+IslandModel
 /1.JavaSyntax/
 /2.JavaCore/
 /3.JavaMultithreading/
