@@ -16,10 +16,10 @@ public class Plant {
 
     public void draw(Game game) {
         for (IslandModelObject islandModelObject : islandModelObjects) {
-            game.setCellValueEx(islandModelObject.x, islandModelObject.y, Color.DARKSEAGREEN, APPEARANCE);
+            game.setCellValueEx(islandModelObject.x, islandModelObject.y,Color.DARKSEAGREEN, APPEARANCE, Color.GREEN,35 );
         }
     }
-    public void reproduce() {
+    public void reproduce(int maximum_quantity_per_cell) {
         int new_x = ((int) (Math.random() * Runner.WIDTH));
         int new_y = ((int) (Math.random() * Runner.HEIGHT));
         int total = 0;
@@ -29,7 +29,7 @@ public class Plant {
             }
         }
         if (total < maximum_quantity_per_cell) {
-            islandModelObjects.add(new IslandModelObject(new_x, new_y));
+            islandModelObjects.add(new IslandModelObject(new_x, new_y, 1, maximum_quantity_per_cell, 0, 0, true, false));
         }
     }
     public int howMuchFood(int x, int y) {
@@ -46,6 +46,7 @@ public class Plant {
             for (int j = 0; j < islandModelObjects.size(); j++) {
                 if (islandModelObjects.get(i).x == x && islandModelObjects.get(i).y == y) {
                     islandModelObjects.remove(i);
+                    System.out.println("sheep eat plant");
                 }
             }
         }
