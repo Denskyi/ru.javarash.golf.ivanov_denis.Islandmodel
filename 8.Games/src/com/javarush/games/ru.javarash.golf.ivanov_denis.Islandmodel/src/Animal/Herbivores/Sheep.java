@@ -41,9 +41,9 @@ public class Sheep extends Animal {
             game.setCellValueEx(islandModelObject.x, islandModelObject.y,Color.DARKSEAGREEN, APPEARANCE, Color.GREEN,75 );
         }
     }
-    public int eat(int x, int y, int howMuchFood) {//покушать
+    public int eat(int x, int y, int howMuchFood) {//Зная сколько есть еды в данной координате, пытаемся покормить каждое животное на этой координате
         int n = 0;
-        for (IslandModelObject islandModelObject : islandModelObjects) {//мы можем есть если есть еда и животные
+        for (IslandModelObject islandModelObject : islandModelObjects) {
             if (islandModelObject.x == x && islandModelObject.y == y && howMuchFood > 0) {
                 n++;
                 howMuchFood--;
@@ -113,14 +113,13 @@ public class Sheep extends Animal {
         return n;
     }
     public void eating(int x,int y, int howMuchEat) {
-        for (int i = 0; i < howMuchEat; i++) {
             for (int j = 0; j < islandModelObjects.size(); j++) {
-                if (islandModelObjects.get(i).x == x && islandModelObjects.get(i).y == y) {
-                    islandModelObjects.remove(i);
+                if (islandModelObjects.get(j).x == x && islandModelObjects.get(j).y == y && howMuchEat > 0) {
+                    howMuchEat--;
+                    islandModelObjects.remove(j);
                     System.out.println("wolf eat sheep");
                 }
             }
-        }
     }
 
 }

@@ -32,7 +32,7 @@ public class Plant {
             islandModelObjects.add(new IslandModelObject(new_x, new_y, 1, maximum_quantity_per_cell, 0, 0, true, false));
         }
     }
-    public int howMuchFood(int x, int y) {
+    public int howMuchFood(int x, int y) {//смотрит колличество еды в данной координате
         int n = 0;
         for (int i = 0; i < islandModelObjects.size(); i++) {
             if (islandModelObjects.get(i).x == x && islandModelObjects.get(i).y == y) {
@@ -42,14 +42,13 @@ public class Plant {
         return n;
     }
     public void eating(int x,int y, int howMuchEat) {
-        for (int i = 0; i < howMuchEat; i++) {
             for (int j = 0; j < islandModelObjects.size(); j++) {
-                if (islandModelObjects.get(i).x == x && islandModelObjects.get(i).y == y) {
-                    islandModelObjects.remove(i);
+                if (islandModelObjects.get(j).x == x && islandModelObjects.get(j).y == y && howMuchEat > 0) {
+                    howMuchEat--;
+                    islandModelObjects.remove(j);
                     System.out.println("sheep eat plant");
                 }
             }
-        }
     }
 
 }

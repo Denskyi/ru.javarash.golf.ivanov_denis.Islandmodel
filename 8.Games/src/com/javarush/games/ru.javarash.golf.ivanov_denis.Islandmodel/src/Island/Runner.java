@@ -40,7 +40,7 @@ public class Runner extends Game{
 
     private void createIslandModel() {//создаём новый мир животных
         sheep.createNewObjects(50, 70, 140, 3, 15, true, false);
-        wolf.createNewObjects(10, 50, 30, 3, 3, true, false);
+        wolf.createNewObjects(0, 50, 30, 3, 3, true, false);
         drawScene();
         turnDelay = 300;
         setTurnTimer(turnDelay);
